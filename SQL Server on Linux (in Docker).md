@@ -42,4 +42,7 @@ About the password: Note that the sa password needs to be relatively complex. I 
 The last argument is unnamed and tells Docker which image to use. (You can see the list of available images you have with docker images.)
 
 
-That is all you need to do, you can see if you docker container is running by running "docker ps -a"
+That is all you need to do, you can see if you docker container is running by running "docker ps -a".
+
+# Connect using Azure Data Studio (AKA SQL Management Studio)
+
