@@ -1,6 +1,6 @@
 # Install Docker
 
-You can download Docker here. I used the stable release, but feel free to use the beta channel and live on the edge.
+You can [download Docker here](https://docs.docker.com/v17.12/docker-for-mac/install/). Make sure to use the latest version of the Docker.
 
 Run the DMG. It's pretty simple; you just drag Docker.app into your Applications folder (there's even a helpful visual guide). Then go to the Applications folder and double-click Docker.app. You'll have a series of prompts, including one to enter your administrator password to let the application fiddle with your network settings. Then Docker will be up in your menubar – it’s a whale, but definitely not the fail whale.
 
