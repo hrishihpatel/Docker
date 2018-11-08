@@ -21,3 +21,22 @@ latest: Pulling from microsoft/mssql-server-linux
 Digest: sha256:238…
 Status: Downloaded newer image for microsoft/mssql-server-linux:latest
 ```
+Now that we have the latest image of MSSQL server, let's spin up the container and connect using local MSSQL client. Run the following command and we'll cover what each parameter in the below code means.
+
+Repalce USERID with your current path.
+
+```
+docker run -v /Users/<USERID>/Documents:/Documents -i -e ACCEPT_EULA=Y -e SA_PASSWORD=Super@Password@123! -p 1433:1433 -d microsoft/mssql-server-linux
+
+```
+
+- -v to mount a volume, so you can attach, restore, etc. using files from the host. Note that you have to specify -v first in order to avoid errors.
+- -i to specify interactive (which really means "attach STDIN and keep it open"). This seemed to eliminate at least one of the connection roadblocks I faced in the early going.
+- -e (twice) to specify environment variables ACCEPT_EULA and SA_PASSWORD.
+For the EULA, this is pretty standard. You need to agree to the terms (even if this actually encourages you not to read them).
+
+About the password: Note that the sa password needs to be relatively complex. I suspect it's based on the default AD implementation, but I don't know that the actual complexity rules are documented. If your password is not complex enough, as Jemeriah noted, the container will just vanish without warning. Also, I recommend avoiding special characters like $, which require cumbersome escaping (\$); sadly, this is where I spent quite easily the second-most amount of troubleshooting time.
+
+- -p to let the host see the ports published by the container. I'll use 1433 here, because I had problems connecting on other ports (I haven't fully investigated that yet).
+- -d to run the container in the background.
+The last argument is unnamed and tells Docker which image to use. (You can see the list of available images you have with docker images.)
