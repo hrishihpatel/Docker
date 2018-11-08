@@ -40,3 +40,6 @@ About the password: Note that the sa password needs to be relatively complex. I 
 - -p to let the host see the ports published by the container. I'll use 1433 here, because I had problems connecting on other ports (I haven't fully investigated that yet).
 - -d to run the container in the background.
 The last argument is unnamed and tells Docker which image to use. (You can see the list of available images you have with docker images.)
+
+
+That is all you need to do, you can see if you docker container is running by running "docker ps -a"
