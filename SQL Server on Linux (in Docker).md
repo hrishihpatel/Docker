@@ -47,3 +47,10 @@ That is all you need to do, you can see if you docker container is running by ru
 # Connect using Azure Data Studio (AKA SQL Management Studio)
 
 You can [download Azure Data Studio here](https://github.com/Microsoft/azuredatastudio)
+
+
+
+
+
+#References
+[Sntryone]{https://blogs.sentryone.com/aaronbertrand/vs-code-mac-sql-linux-docker/)
