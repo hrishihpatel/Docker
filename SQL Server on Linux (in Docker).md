@@ -46,6 +46,8 @@ The last argument is unnamed and tells Docker which image to use. (You can see t
 
 That is all you need to do, you can see if you docker container is running by running "docker ps -a".
 
+If you're not a Terminal fan, i would recommend installing [Kitematic](https://kitematic.com/), a visual representation of Docker Container.
+
 # Connect using Azure Data Studio (AKA SQL Management Studio)
 
 You can [download Azure Data Studio here](https://github.com/Microsoft/azuredatastudio)
