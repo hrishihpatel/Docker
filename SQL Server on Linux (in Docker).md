@@ -50,7 +50,7 @@ You can [download Azure Data Studio here](https://github.com/Microsoft/azuredata
 
 # Backup And Restore Database
 
-Backup
+Backup (Make sure to Backup prior to shutting down the container)
 ```
 USE DockerLab;  
 GO  
@@ -60,7 +60,7 @@ GO
 
 ```
 
-Restore
+Restore 
 
 Next, let's prepare to restore a backup file from the host. I happened to have an old Northwind backup in my Documents folder, so I can check the logical file names from RESTORE FILELISTONLY, and see where I need to move the data and log files based on the results of sp_helpfile:
 
