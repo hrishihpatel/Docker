@@ -47,7 +47,17 @@ That is all you need to do, you can see if you docker container is running by ru
 
 If you're not a Terminal fan, i would recommend installing [Kitematic](https://kitematic.com/), a visual representation of Docker Container.
 
-# Connect using Azure Data Studio (AKA SQL Management Studio)
+# Obtain the IP address of your Docker image
+
+```
+docker inspect --format '{{.NetworkSettings.Networks.nat.IPAddress}}' <ImageName>
+```
+For Example
+```
+docker inspect --format '{{.NetworkSettings.Networks.nat.IPAddress}}' mssql
+```
+
+# Connect with SQL Server Management Studio
 
 You can [download Azure Data Studio here](https://github.com/Microsoft/azuredatastudio)
 
@@ -84,6 +94,3 @@ WITH MOVE N'DockerLab' TO N'/var/opt/mssql/data/dl.mdf',
 GO
 SELECT name from DockerLab.sys.tables;
 ```
-
-# References
-[Sntryone](https://blogs.sentryone.com/aaronbertrand/vs-code-mac-sql-linux-docker/)
