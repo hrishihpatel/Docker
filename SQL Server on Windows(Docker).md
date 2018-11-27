@@ -11,40 +11,38 @@ Additionally I would recommend to install Kitematic, a simple and powerful graph
 
 To run SQL Server inside of a Docker container, you must have at least 3.25 GB allocated (Docker defaults to 2 GB, and if you leave this setting, SQL Server won't run). So click on the whale, go to Preferences, and increase the memory (I recommend 4 GB at a minimum, but if you can afford more, go for it). Then hit Apply & Restart:
 
+# Setup Docker for Windows containers
+After installing Docker on your machine Docker will start automatically in the background. As per default, Docker runs with Linux containers and you have to switch to Windows containers first. 
+
+- Right click on your Docker icon in the taskbar and select “Switch to Windows containers”.
+
+
 # Running a SQL Server container
 
 At this point you should have installed the docker so let's jump right into it. Open Terminal window and pull the latest version of MS SQL from docker store. 
 
 ``` docker pull microsoft/mssql-server-windows ```
 
-You can determine success by looking for the following output:
+After your image download has been completed you can start your SQL Server image with the following command:
 
 ```
-Using default tag: latest
-latest: Pulling from microsoft/mssql-server-linux
-…
-Digest: sha256:238…
-Status: Downloaded newer image for microsoft/mssql-server-linux:latest
+docker run -d –p <Port> –name <FriendlyName> -e sa_password=<Password> -e ACCEPT_EULA=Y microsoft/mssql-server-windows-developer:2017-latest
 ```
-Now that we have the latest image of MSSQL server, let's spin up the container and connect using local MSSQL client. Run the following command and we'll cover what each parameter in the below code means.
-
-Repalce USERID with your current path.
+For Example
 
 ```
-docker run -v /Users/<USERID>/Documents:/Documents -i -e ACCEPT_EULA=Y -e SA_PASSWORD=Super@Password@123! -p 1433:1433 -d microsoft/mssql-server-linux --name mssql
-
+docker run -d -p 1433:1433 -v C:/temp/:C:/temp/ -e sa_password=Super@Password@123! -e ACCEPT_EULA=Y microsoft/mssql-server-windows
 ```
 
-- -v to mount a volume, so you can attach, restore, etc. using files from the host. Note that you have to specify -v first in order to avoid errors(Note: linq container for MSSQL currently does not support Persistant profile).
-- -i to specify interactive (which really means "attach STDIN and keep it open"). This seemed to eliminate at least one of the connection roadblocks I faced in the early going.
-- -e (twice) to specify environment variables ACCEPT_EULA and SA_PASSWORD.
-For the EULA, this is pretty standard. You need to agree to the terms (even if this actually encourages you not to read them).
+- -p **HostPort:containerPort** is for port-mapping a container network port to a host port.
 
-About the password: Note that the sa password needs to be relatively complex. I suspect it's based on the default AD implementation, but I don't know that the actual complexity rules are documented. If your password is not complex enough, as Jemeriah noted, the container will just vanish without warning. Also, I recommend avoiding special characters like $, which require cumbersome escaping (\$); sadly, this is where I spent quite easily the second-most amount of troubleshooting time.
+- -v **HostPath:containerPath** is for mounting a folder from the host inside the container.
 
-- -p to let the host see the ports published by the container. I'll use 1433 here, because I had problems connecting on other ports (I haven't fully investigated that yet).
-- -d to run the container in the background.
-The last argument is unnamed and tells Docker which image to use. (You can see the list of available images you have with docker images.)
+This can be used for saving database outside of the container.
+
+- -**it** can be used to show the verbose output of the SQL startup script.
+
+Use this to debug the container in case of issues.
 
 
 That is all you need to do, you can see if you docker container is running by running "docker ps -a".
