@@ -1,3 +1,14 @@
+
+### Contents
+
+[Install Docker for Windows](#install-docker-for-windows)<br/>
+[Setup Docker for Windows Containers](#setup-docker-for-windows-containers)<br/>
+[Running a SQL Server container](#running-a-sql-server-container)<br />
+[Obtain IP Address of Docker Image](#obtain-ip-address)<br />
+[Connect using Microsoft Management Studio)(#connect-with-SQLMgmtStudio)<br />
+
+
+<a name=install-docker-for-windows></a>
 # Install Docker
 
 You can [download Docker here](https://www.docker.com/products/docker-desktop). Make sure to use the latest version of the Docker.
@@ -11,12 +22,13 @@ Additionally I would recommend to install Kitematic, a simple and powerful graph
 
 To run SQL Server inside of a Docker container, you must have at least 3.25 GB allocated (Docker defaults to 2 GB, and if you leave this setting, SQL Server won't run). So click on the whale, go to Preferences, and increase the memory (I recommend 4 GB at a minimum, but if you can afford more, go for it). Then hit Apply & Restart:
 
-# Setup Docker for Windows containers
+<a name=setup-docker-for-windows-containers></a>
+# Setup Docker for Windows Containers
 After installing Docker on your machine Docker will start automatically in the background. As per default, Docker runs with Linux containers and you have to switch to Windows containers first. 
 
 - Right click on your Docker icon in the taskbar and select “Switch to Windows containers”.
 
-
+<a name=running-a-sql-server-container></a>
 # Running a SQL Server container
 
 At this point you should have installed the docker so let's jump right into it. Open Terminal window and pull the latest version of MS SQL from docker store. 
@@ -47,6 +59,7 @@ That is all you need to do, you can see if you docker container is running by ru
 
 If you're not a Terminal fan, i would recommend installing [Kitematic](https://kitematic.com/), a visual representation of Docker Container.
 
+<a name=obtain-ip-address></a>
 # Obtain the IP address of your Docker image
 
 ```
@@ -56,7 +69,7 @@ For Example
 ```
 docker inspect --format '{{.NetworkSettings.Networks.nat.IPAddress}}' mssql
 ```
-
+<a name=connect-with-SQLMgmtStudio></a>
 # Connect with SQL Server Management Studio
 
 Based on the IP address of your docker image, you may connect to your MSSQL using the IP and port 1433
