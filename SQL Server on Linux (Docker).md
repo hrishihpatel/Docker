@@ -28,11 +28,11 @@ Now that we have the latest image of MSSQL server, let's spin up the container a
 Repalce USERID with your current path.
 
 ```
-docker run -v /Users/<USERID>/Documents:/Documents -i -e ACCEPT_EULA=Y -e SA_PASSWORD=Super@Password@123! -p 1433:1433 -d microsoft/mssql-server-linux
+docker run -v /Users/<USERID>/Documents:/Documents -i -e ACCEPT_EULA=Y -e SA_PASSWORD=Super@Password@123! -p 1433:1433 -d microsoft/mssql-server-linux --name mssql
 
 ```
 
-- -v to mount a volume, so you can attach, restore, etc. using files from the host. Note that you have to specify -v first in order to avoid errors.
+- -v to mount a volume, so you can attach, restore, etc. using files from the host. Note that you have to specify -v first in order to avoid errors(Note: linq container for MSSQL currently does not support Persistant profile).
 - -i to specify interactive (which really means "attach STDIN and keep it open"). This seemed to eliminate at least one of the connection roadblocks I faced in the early going.
 - -e (twice) to specify environment variables ACCEPT_EULA and SA_PASSWORD.
 For the EULA, this is pretty standard. You need to agree to the terms (even if this actually encourages you not to read them).
