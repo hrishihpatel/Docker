@@ -1,14 +1,10 @@
 
 ### Contents
 
-[Install Docker for Windows](#install-docker-for-windows)<br/>
-[Setup Docker for Windows Containers](#setup-docker-for-windows-containers)<br/>
-[Running a SQL Server container](#running-a-sql-server-container)<br />
-[Obtain IP Address of Docker Image](#obtain-ip-address)<br />
-[Connect using Microsoft Management Studio](#connect-with-SQLMgmtStudio)<br />
+[Spring Cloud Config Pull](#spring-cloud-pull)<br/>
 
 
-<a name=install-docker-for-windows></a>
+<a name=spring-cloud-pull></a>
 # Spring Cloud Config Pull
 
 ```
