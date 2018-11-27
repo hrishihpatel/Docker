@@ -43,7 +43,7 @@ docker run -d –p <Port> –name <FriendlyName> -v <mountlocation> -e sa_passwo
 For Example
 
 ```
-docker run -d -p 1433:1433 -v C:/temp/:C:/temp/ -e sa_password=Super@Password@123! -e ACCEPT_EULA=Y microsoft/mssql-server-windows
+docker run -d -p 1433:1433 -name mssql -v C:/temp/:C:/temp/ -e sa_password=Super@Password@123! -e ACCEPT_EULA=Y microsoft/mssql-server-windows
 ```
 
 - -p **HostPort:containerPort** is for port-mapping a container network port to a host port.
