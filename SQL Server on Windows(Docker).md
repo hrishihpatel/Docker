@@ -38,7 +38,7 @@ At this point you should have installed the docker so let's jump right into it. 
 After your image download has been completed you can start your SQL Server image with the following command:
 
 ```
-docker run -d –p <Port> –name <FriendlyName> -e sa_password=<Password> -e ACCEPT_EULA=Y microsoft/mssql-server-windows-developer:2017-latest
+docker run -d –p <Port> –name <FriendlyName> -v <mountlocation> -e sa_password=<Password> -e ACCEPT_EULA=Y microsoft/mssql-server-windows-developer:2017-latest
 ```
 For Example
 
