@@ -5,7 +5,7 @@
 [Setup Docker for Windows Containers](#setup-docker-for-windows-containers)<br/>
 [Running a SQL Server container](#running-a-sql-server-container)<br />
 [Obtain IP Address of Docker Image](#obtain-ip-address)<br />
-[Connect using Microsoft Management Studio)(#connect-with-SQLMgmtStudio)<br />
+[Connect using Microsoft Management Studio](#connect-with-SQLMgmtStudio)<br />
 
 
 <a name=install-docker-for-windows></a>
