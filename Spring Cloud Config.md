@@ -19,6 +19,6 @@ Spring Cloud Config Server is a normal Spring Boot appication, it can be configu
 ## Git 
 
 ```
-docker run -d -it -p 8888:8888 -e SPRING_CLOUD_CONFIG_SERVER_GIT_URI=<GitURL> -name springcloud hyness/spring-cloud-config-server
+docker run -d -it -p 8888:8888 -e SPRING_CLOUD_CONFIG_SERVER_GIT_URI=<GitURL> --name springcloud hyness/spring-cloud-config-server
 ```
 
