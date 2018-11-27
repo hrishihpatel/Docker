@@ -42,8 +42,6 @@ This can be used for saving database outside of the container.
 
 - -**it** can be used to show the verbose output of the SQL startup script.
 
-Use this to debug the container in case of issues.
-
 
 That is all you need to do, you can see if you docker container is running by running "docker ps -a".
 
