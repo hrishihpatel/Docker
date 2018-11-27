@@ -59,7 +59,7 @@ docker inspect --format '{{.NetworkSettings.Networks.nat.IPAddress}}' mssql
 
 # Connect with SQL Server Management Studio
 
-You can [download Azure Data Studio here](https://github.com/Microsoft/azuredatastudio)
+Based on the IP address of your docker image, you may connect to your MSSQL using the IP and port 1433
 
 # Backup And Restore Database
 
