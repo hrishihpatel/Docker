@@ -28,7 +28,7 @@ Now that we have the latest image of MSSQL server, let's spin up the container a
 Repalce USERID with your current path.
 
 ```
-docker run -v /Users/<USERID>/Documents:/Documents -i -e ACCEPT_EULA=Y -e SA_PASSWORD=Super@Password@123! -p 1433:1433 -d microsoft/mssql-server-linux --name mssql
+docker run -v /Users/<USERID>/Documents:/Documents -i -e ACCEPT_EULA=Y -e SA_PASSWORD=Super@Password@123! -p 1433:1433 -d --name mssql microsoft/mssql-server-linux
 
 ```
 
