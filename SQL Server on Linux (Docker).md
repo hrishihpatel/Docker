@@ -12,23 +12,23 @@ To run SQL Server inside of a Docker container, you must have at least 3.25 GB a
 
 At this point you should have installed the docker so let's jump right into it. Open Terminal window and pull the latest version of MS SQL from docker store. 
 
-``` docker pull microsoft/mssql-server-linux ```
+``` docker pull mcr.microsoft.com/mssql/server ```
 
 You can determine success by looking for the following output:
 
 ```
 Using default tag: latest
-latest: Pulling from microsoft/mssql-server-linux
+latest: Pulling from mcr.microsoft.com/mssql/server
 …
 Digest: sha256:238…
-Status: Downloaded newer image for microsoft/mssql-server-linux:latest
+Status: Downloaded newer image for mcr.microsoft.com/mssql/server:latest
 ```
 Now that we have the latest image of MSSQL server, let's spin up the container and connect using local MSSQL client. Run the following command and we'll cover what each parameter in the below code means.
 
 Repalce USERID with your current path.
 
 ```
-docker run -v /Users/<USERID>/Documents:/Documents -i -e ACCEPT_EULA=Y -e SA_PASSWORD=Super@Password@123! -p 1433:1433 -d --name mssql microsoft/mssql-server-linux
+docker run -v /Users/<USERID>/Documents:/Documents -i -e ACCEPT_EULA=Y -e SA_PASSWORD=Super@Password@123! -p 1433:1433 -d --name mssql mcr.microsoft.com/mssql/server
 
 ```
 
